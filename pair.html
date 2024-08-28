@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/PARKY-MD.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Associer votre numéro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("https://telegra.ph/file/9de0ab729f967730abbdd.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .box {
+      width: 350px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    #text {
+      color: #333;
+    }
+
+    .input-container {
+      display: flex;
+      background: linear-gradient(45deg, #f1f1f1 0%, #ffffff 100%);
+      box-shadow: 20px 20px 20px #d0d0d0, -10px -10px 20px #f5f5f5;
+      border-radius: 1rem;
+      padding: 0.3rem;
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .input-container input {
+      border-radius: 0.8rem 0 0 0.8rem;
+      background: #eaeaea;
+      box-shadow: inset 13px 13px 10px #dcdcdc, inset -13px -13px 10px #f4f4f4;
+      width: 80%;
+      padding: 1rem;
+      border: none;
+      color: #333;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .input-container input:focus {
+      outline: none;
+      box-shadow: inset 13px 13px 10px #a0a0a0, inset -13px -13px 10px #f4f4f4;
+    }
+
+    .input-container button {
+      flex-basis: 20%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white;
+      border: none;
+      border-radius: 0 1rem 1rem 0;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .input-container button:hover {
+      background: linear-gradient(135deg, #0056b3 0%, #003d7a 100%);
+    }
+
+    @media (max-width: 500px) {
+      .input-container {
+        flex-direction: column;
+      }
+
+      .input-container input {
+        border-radius: 0.8rem;
+        width: 100%;
+      }
+
+      .input-container button {
+        border-radius: 0.8rem;
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <div id="text">
+        <i class="fa fa-phone-alt"></i>
+        <h3>Associez votre numéro</h3>
+        <h6>Entrez votre numéro avec l'indicatif du pays.</h6>
+        <div class="input-container">
+          <input type="text" id="number" placeholder="Entrez votre numéro avec l'indicatif du pays">
+          <button id="submit">Envoyer</button>
+        </div>
+        <a id="waiting-message" style="display: none;">En cours...</a>
+        <main id="pair"></main>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    document.getElementById("submit").addEventListener("click", async (e) => {
+      e.preventDefault();
+      const numberInput = document.getElementById("number");
+      const pairElement = document.getElementById("pair");
+      const waitingMessage = document.getElementById("waiting-message");
+
+      const number = numberInput.value.replace(/[^0-9]/g, "");
+
+      if (!number) {
+        pairElement.innerHTML = '<span style="color:black;font-weight:bold">Veuillez entrer votre numéro WhatsApp avec l’indicatif du pays.</span>';
+      } else if (number.length < 10) {
+        pairElement.innerHTML = '<span style="color:black;font-weight:bold">Format de numéro invalide</span>';
+      } else {
+        const formattedNumber = formatNumber(number);
+        numberInput.value = "+" + formattedNumber;
+        waitingMessage.style.display = 'block';
+        pairElement.innerHTML = '';
+
+        try {
+          const { data } = await axios(`/code?number=${number}`);
+          const code = data.code || "Service indisponible";
+          pairElement.innerHTML = `<span id="copy" onclick="copyToClipboard('${code}')" style="color:red;font-weight:bold">CODE : <span style="color:black;font-weight:bold">${code}</span></span>`;
+        } catch (error) {
+          pairElement.innerHTML = '<span style="color:black;font-weight:bold">Erreur lors de la récupération du code. Veuillez réessayer.</span>';
+        } finally {
+          waitingMessage.style.display = 'none';
+        }
+      }
+    });
+
+    function formatNumber(number) {
+      let formatted = "";
+      for (let i = 0; i < number.length; i++) {
+        if (i === 2 || i === 5) formatted += " ";
+        formatted += number[i];
+      }
+      return formatted;
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const copyElement = document.getElementById("copy");
+        copyElement.innerText = "COPIÉ";
+        copyElement.style.color = "blue";
+        setTimeout(() => {
+          copyElement.innerText = "CODE : " + text;
+          copyElement.style.color = "red";
+        }, 500);
+      });
+    }
+  </script>
+</body>
+</html>

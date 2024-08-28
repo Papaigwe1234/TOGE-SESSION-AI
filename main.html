@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/PARKY-MD.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Principale</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("https://telegra.ph/file/9de0ab729f967730abbdd.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .btn {
+      width: 200px;
+      padding: 0.8em 1.75em;
+      background-color: transparent;
+      border-radius: 6px;
+      border: 2px solid #ffffff;
+      transition: 0.5s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      margin: 10px;
+      font-weight: 600;
+      font-size: 17px;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .btn::after {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 300%;
+      background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0.7));
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      transition: all 0.75s ease;
+      transform: rotate(-30deg);
+      z-index: 0;
+    }
+
+    .btn:hover::after {
+      transform: rotate(30deg);
+      top: 0;
+      left: 0;
+      background: linear-gradient(45deg, rgba(255,255,255,0.5), rgba(255,255,255,0.9));
+    }
+
+    .btn:hover {
+      color: #000;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .btn:active {
+      filter: brightness(0.7);
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <button onclick="window.open('/pair', '_self')" class="btn">Code d’Appairage</button>
+    <button onclick="window.open('https://github.com/Jeanparker100', '_blank')" class="btn">GitHub</button>
+    <button onclick="window.open('https://youtube.com/@Jean-Parker-tech', '_blank')" class="btn">YouTube</button>
+    <button onclick="window.open('https://t.me/Jeanparker100', '_blank')" class="btn">Telegram</button>
+    <button onclick="window.open('https://www.instagram.com/its_jeanparker?igsh=MXF3OHgzcnJsZzhqNQ==', '_blank')" class="btn">Instagram</button>
+  </div>
+
+</body>
+</html>
