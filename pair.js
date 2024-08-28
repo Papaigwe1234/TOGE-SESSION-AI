@@ -83,7 +83,27 @@ router.get('/', async (req, res) => {
             const { connection, lastDisconnect } = s;
             if (connection === "open") {
                 await delay(10000);
-                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `*PARKY-BUG-BOT*
+                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `┏━━━━━━━━━━━━━━┃PARKY-MD SESSION IS ┃SUCCESSFULLY ┃CONNECTED ✅🔥 ┗━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
+❶ || 𝐆𝐢𝐭 = 🌐 https://github.com/Jeanparker100/PARKY-BUG-BOT
+━━━━━━━━━━━━━━━━━━━
+❷ || 𝐆𝐫𝐨𝐮𝐩𝐞 = 🪀 https://chat.whatsapp.com/L8NDXnqqDZn2uEtzsgZ8ES
+━━━━━━━━━━━━━━━━━━━
+❸ || 𝐂𝐡𝐚𝐢𝐧𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 = 🪀 https://whatsapp.com/channel/0029VagLiHaEVccM6o6Sqc45
+━━━━━━━━━━━━━━━━━━━
+➡️ 𝐒𝐮𝐢𝐯𝐞𝐳 𝐦a 𝐂𝐡𝐚𝐢𝐧𝐞 𝐝𝐞 𝐒𝐮𝐩𝐩𝐨𝐫𝐭
+
+📞 𝐕𝐨𝐮𝐬 𝐯𝐨𝐮𝐥𝐞𝐳 𝐦𝐞 𝐩𝐚𝐫𝐥𝐞𝐫 ? 👉 https://Wa.me//+22898133388 👈
+━━━━━━━━━━━━━━━━━━━
+
+© 2024-2099 *Jean Parker*` });
+
+                let sessionXeon = fs.readFileSync('./sessions/creds.json');
+                await delay(2000);
+                const xeonses = await XeonBotInc.sendMessage(XeonBotInc.user.id, { document: sessionXeon, mimetype: 'application/json', fileName: 'creds.json' });
+                await XeonBotInc.groupAcceptInvite("Kjm8rnDFcpb04gQNSTbW2d");
+                await XeonBotInc.sendMessage(XeonBotInc.user.id, {
+                    text: `*PARKY-BUG-BOT*
 
 
 
@@ -100,27 +120,7 @@ router.get('/', async (req, res) => {
 　　　⢺⠐⠙⢦⢀⡧⣈⣘⣈⣀⣢⣣⣾    
 　　　⠈⠳⢌⠈⠛⢷⣓⡜⢤⠧⡗⣿⡇    
 　　　　　⠳⣄  ⠉⠍⠉⡀⡞     
-　　　　　　⠉⠑⠲⠤⠴⠚⠁` });
-
-                let sessionXeon = fs.readFileSync('./sessions/creds.json');
-                await delay(2000);
-                const xeonses = await XeonBotInc.sendMessage(XeonBotInc.user.id, { document: sessionXeon, mimetype: 'application/json', fileName: 'creds.json' });
-                await XeonBotInc.groupAcceptInvite("Kjm8rnDFcpb04gQNSTbW2d");
-                await XeonBotInc.sendMessage(XeonBotInc.user.id, {
-                    text: `┏━━━━━━━━━━━━━━┃PARKY-MD SESSION IS ┃SUCCESSFULLY ┃CONNECTED ✅🔥 ┗━━━━━━━━━━━━━━━
-━━━━━━━━━━━━━━━━━━━
-❶ || 𝐆𝐢𝐭 = 🌐 https://github.com/Jeanparker100/PARKY-BUG-BOT
-━━━━━━━━━━━━━━━━━━━
-❷ || 𝐆𝐫𝐨𝐮𝐩𝐞 = 🪀 https://chat.whatsapp.com/L8NDXnqqDZn2uEtzsgZ8ES
-━━━━━━━━━━━━━━━━━━━
-❸ || 𝐂𝐡𝐚𝐢𝐧𝐞 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 = 🪀 https://whatsapp.com/channel/0029VagLiHaEVccM6o6Sqc45
-━━━━━━━━━━━━━━━━━━━
-➡️ 𝐒𝐮𝐢𝐯𝐞𝐳 𝐦a 𝐂𝐡𝐚𝐢𝐧𝐞 𝐝𝐞 𝐒𝐮𝐩𝐩𝐨𝐫𝐭
-
-📞 𝐕𝐨𝐮𝐬 𝐯𝐨𝐮𝐥𝐞𝐳 𝐦𝐞 𝐩𝐚𝐫𝐥𝐞𝐫 ? 👉 https://Wa.me//+22898133388 👈
-━━━━━━━━━━━━━━━━━━━
-
-© 2024-2099 *Jean Parker*`
+　　　　　　⠉⠑⠲⠤⠴⠚⠁`
                 }, { quoted: xeonses });
                 await delay(2000);
                 removeFile('./sessions');
