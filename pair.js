@@ -83,7 +83,11 @@ router.get('/', async (req, res) => {
             const { connection, lastDisconnect } = s;
             if (connection === "open") {
                 await delay(10000);
-                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `┏━━━━━━━━━━━━━━┃PARKY-MD SESSION IS ┃SUCCESSFULLY ┃CONNECTED ✅🔥 ┗━━━━━━━━━━━━━━━
+                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `┏━『 *PARKY-MD* 』━◧
+┣⌬ *SESSION = CONNECTÉ*
+┣⌬ *CREDS.JSON = 📁✅*
+┗━━━━━━━━━━━━━━━◧
+
 ━━━━━━━━━━━━━━━━━━━
 ❶ || 𝐆𝐢𝐭 = 🌐 https://github.com/Jeanparker100/PARKY-BUG-BOT
 ━━━━━━━━━━━━━━━━━━━
