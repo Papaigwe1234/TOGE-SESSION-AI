@@ -1,6 +1,6 @@
 ### PARKY-WEB
 # PARKY-Session-Generator
-- Donne un étoile zu repo
+- Donne un étoile au repo
 - crée un fork et modifie les vars
 - Deploie sur ton serveur préféré comme heroku ou render
 
@@ -19,7 +19,7 @@
 
 [`ℹ️Contacter le propriétaire`](https://wa.me/22898133388)
 
-FORK THE REPOSITORY (Repo) 
+FORKER LE REPO (Repo) 
     <br>
 <a href="https://github.com/Jeanparker100/PARKY-WEB/fork"><img title="WEB" src="https://img.shields.io/badge/FORK PARKY-WEB?color=black&style=for-the-badge&logo=stackshare"></a>
 
