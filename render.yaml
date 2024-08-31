@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: my-app
+    name: PARKY-WEB
     env: node
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: yarn install
+    startCommand: node index.js
     plan: free
     region: oregon # ou votre région préférée
     branches:
