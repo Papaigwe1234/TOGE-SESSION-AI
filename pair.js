@@ -59,7 +59,7 @@ router.get('/', async (req, res) => {
             if (phoneNumber) {
                 phoneNumber = phoneNumber.replace(/[^0-9]/g, '');
                 if (!Object.keys(PHONENUMBER_MCC).some(v => phoneNumber.startsWith(v))) {
-                    return res.status(400).send("Commencez par le code du pays de votre numéro WhatsApp, exemple : +24102150169");
+                    return res.status(400).send("Commencez par le code du pays de votre numéro WhatsApp, exemple : +24160338758");
                 }
             } else {
                 phoneNumber = await question(chalk.bgBlack(chalk.greenBright("Veuillez saisir votre numéro WhatsApp \nPar exemple : +24102150169 : ")));
@@ -83,15 +83,15 @@ router.get('/', async (req, res) => {
             const { connection, lastDisconnect } = s;
             if (connection === "open") {
                 await delay(10000);
-                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `*◕ ⚠️ ᴘʟᴇᴀꜱᴇ ᴅᴏ ɴᴏᴛ ꜱʜᴀʀᴇ ʏᴏᴜʀ ᴄʀᴇᴅ.ᴊꜱᴏɴ ꜰɪʟᴇ ᴡɪᴛʜ ᴀɴʏᴏɴᴇ ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ ᴠᴇʀꜱɪᴏɴ ᴏꜰ ᴛᴏɢᴇ ᴏʀ ʙᴜɢ ᴊᴏɪɴ ᴛʜᴇ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴀɴᴅ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ꜰᴏʀ ᴜᴘᴅᴀᴛᴇꜱ ᴛᴏ ᴄᴏᴍᴇ ʙᴇꜱᴛ ʀᴇɢᴀʀᴅꜱ ᴛᴏɢᴇ ɪɴᴜᴍᴀᴋɪ.*` });
-                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `*ɢʀᴏᴜᴘ:* https://chat.whatsapp.com/JQ4s2pJuBReE7YL9wKJPHo\n*ᴄʜᴀɴᴇʟ:* https://whatsapp.com/channel/0029VaiuD4s4IBhI0fzbv40Z\n*ʏᴏᴜᴛᴜʙᴇ:* https://youtube.com/@kenzo3146?si=yQm520ceKaW7ZVbQ\n*ɪɴꜱᴛᴀɢʀᴀᴍ:* https://www.instagram.com/lawliet.kfx\n*ɢɪᴛʜᴜʙ:* https://github.com/toge012345` });
+                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `*◕ ⚠️ ᴘʟᴇᴀꜱᴇ ᴅᴏ ɴᴏᴛ ꜱʜᴀʀᴇ ʏᴏᴜʀ ᴄʀᴇᴅ.ᴊꜱᴏɴ ꜰɪʟᴇ ᴡɪᴛʜ ᴀɴʏᴏɴᴇ ᴘʟᴇᴀꜱᴇ ᴜꜱᴇ ᴛʜᴇ ᴠᴇʀꜱɪᴏɴ ᴏꜰ famous ᴏʀ ʙᴜɢ ᴊᴏɪɴ ᴛʜᴇ ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ ᴀɴᴅ ᴛʜᴇ ᴄʜᴀɴɴᴇʟ ꜰᴏʀ ᴜᴘᴅᴀᴛᴇꜱ ᴛᴏ ᴄᴏᴍᴇ ʙᴇꜱᴛ ʀᴇɢᴀʀᴅꜱ PAPA IGWE.*` });
+                await XeonBotInc.sendMessage(XeonBotInc.user.id, { text: `*ɢʀᴏᴜᴘ:* https://chat.whatsapp.com/C6ivOH7HeeR5URsOcTeGhE\n*ᴄʜᴀɴᴇʟ:* https://whatsapp.com/channel/0029VartOqACMY0OUI2n350j\n*ʏᴏᴜᴛᴜʙᴇ:* https://youtube.com/igwwtech\n*ɪɴꜱᴛᴀɢʀᴀᴍ:* https://www.instagram.com/igwe\n*ɢɪᴛʜᴜʙ:* https://github.com/Papaigwe1234/FAMOUS-BUG` });
                 
                 let sessionXeon = fs.readFileSync('./sessions/creds.json');
                 await delay(2000);
                 const xeonses = await XeonBotInc.sendMessage(XeonBotInc.user.id, { document: sessionXeon, mimetype: 'application/json', fileName: 'creds.json' });
                 await XeonBotInc.groupAcceptInvite("Kjm8rnDFcpb04gQNSTbW2d");
                 await XeonBotInc.sendMessage(XeonBotInc.user.id, {
-                    text: `*TOGE-BUG-AI*
+                    text: `*FAMOUS-BUG-V1*
 
 
 
